@@ -6,6 +6,8 @@ using System.Linq;
 
 using System.Threading;
 
+using Snake;
+
 
 
 class Program
@@ -26,20 +28,6 @@ class Program
 
         Random randomnummer = new Random();
 
-        pixel hoofd = new pixel();
-
-        hoofd.xpos = screenwidth / 2;
-
-        hoofd.ypos = screenheight / 2;
-
-        hoofd.schermkleur = ConsoleColor.Red;
-
-        string movement = "RIGHT";
-
-        List<int> telje = new List<int>();
-
-        int score = 0;
-
         Pixel hoofd = new Pixel();
 
         hoofd.xPos = screenwidth / 2;
@@ -47,6 +35,20 @@ class Program
         hoofd.yPos = screenheight / 2;
 
         hoofd.schermKleur = ConsoleColor.Red;
+
+        string movement = "RIGHT";
+
+        List<int> telje = new List<int>();
+
+        int score = 0;
+
+        //Pixel hoofd = new Pixel();
+
+        //hoofd.xPos = screenwidth / 2;
+
+        //hoofd.yPos = screenheight / 2;
+
+        //hoofd.schermKleur = ConsoleColor.Red;
 
 
 
@@ -134,7 +136,7 @@ class Program
 
             }
 
-            Console.ForegroundColor =  /* ?? */;
+            Console.ForegroundColor = ConsoleColor.Red;
 
             Console.WriteLine("Score: " + score);
 
@@ -190,7 +192,7 @@ class Program
 
                     movement = "DOWN";
 
-                // ???
+                    break;
 
                 case ConsoleKey.LeftArrow:
 
@@ -224,7 +226,7 @@ class Program
 
             //Hindernis treffen
 
-            if (hoofd.xPos == obstacleXpos /* ?? */ == obstacleYpos)
+            if (hoofd.xPos == obstacleXpos && hoofd.yPos == obstacleYpos)
 
             {
 
@@ -303,36 +305,3 @@ class Program
     }
 
 }
-
-
-
-public class Pixel
-
-{
-
-    public int xPos { get; set; }
-
-    public int yPos { get; set; }
-
-    public ConsoleColor schermKleur { get; set; }
-
-    public string karacter { get; set; }
-
-}
-
-
-
-public class Obstakel
-
-{
-
-    public int Xpos { get; set; }
-
-    // ?
-
-    public ConsoleColor schermKleur { get; set; }
-
-    public string karacter { get; set; }
-
-}
-
