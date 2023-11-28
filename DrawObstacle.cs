@@ -11,56 +11,36 @@ namespace Snake
 
             Console.Write(obstacle);
 
-
-
             Console.ForegroundColor = ConsoleColor.Green;
 
             Console.SetCursorPosition(hoofd.xPos, hoofd.yPos);
 
             Console.Write("■");
 
-
-
             Console.ForegroundColor = ConsoleColor.White;
 
             for (int i = 0; i < screenwidth; i++)
-
             {
-
                 Console.SetCursorPosition(i, 0);
-
                 Console.Write("■");
-
             }
 
             for (int i = 0; i < screenwidth; i++)
-
             {
-
                 Console.SetCursorPosition(i, screenheight - 1);
-
                 Console.Write("■");
-
             }
 
             for (int i = 0; i < screenheight; i++)
-
             {
-
                 Console.SetCursorPosition(0, i);
-
                 Console.Write("■");
-
             }
 
             for (int i = 0; i < screenheight; i++)
-
             {
-
                 Console.SetCursorPosition(screenwidth - 1, i);
-
                 Console.Write("■");
-
             }
 
             Console.ForegroundColor = ConsoleColor.Red;
@@ -70,16 +50,6 @@ namespace Snake
             Console.ForegroundColor = ConsoleColor.White;
 
             Console.Write("H");
-
-            for (int i = 0; i < telje.Count(); i++)
-
-            {
-
-                Console.SetCursorPosition(telje[i], telje[i + 1]);
-
-                Console.Write("■");
-
-            }
         }
 	}
 }

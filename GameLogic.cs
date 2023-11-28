@@ -70,7 +70,7 @@ namespace Snake
 
                 Console.SetCursorPosition(screenwidth / 5, screenheight / 2 + 1);
 
-                Console.WriteLine("Dein Score ist: " + score);
+                Console.WriteLine("Score is: " + score);
 
                 Console.SetCursorPosition(screenwidth / 5, screenheight / 2 + 2);
 
@@ -78,7 +78,7 @@ namespace Snake
 
             }
 
-            for (int i = 0; i < telje.Count(); i += 2)
+            for (int i = 2; i < telje.Count(); i += 2)
 
             {
 
@@ -92,11 +92,9 @@ namespace Snake
 
                     Console.SetCursorPosition(screenwidth / 5, screenheight / 2);
 
-                    //???
-
                     Console.SetCursorPosition(screenwidth / 5, screenheight / 2 + 1);
 
-                    Console.WriteLine("Dein Score ist: " + score);
+                    Console.WriteLine("Score is: " + score);
 
                     Console.SetCursorPosition(screenwidth / 5, screenheight / 2 + 2);
 
@@ -106,27 +104,29 @@ namespace Snake
 
             }
         }
-        public static void HittingAnObstacle(Pixel hoofd, int obstacleXpos, int obstacleYpos, int score, int screenwidth, int screenheight, Random randomnummer, List<int> teljePositie)
+        public static int HittingAnObstacle(Pixel hoofd, int obstacleXpos, int obstacleYpos, int score, int screenwidth, int screenheight, Random randomnummer, List<int> teljePositie)
         {
             if (hoofd.xPos == obstacleXpos && hoofd.yPos == obstacleYpos)
-
             {
+               score++;
 
-                score++;
+               teljePositie.Insert(0, hoofd.xPos);
+               teljePositie.Insert(1, hoofd.yPos);
 
-                obstacleXpos = randomnummer.Next(1, screenwidth);
+               DrawSnake.DrawTail(teljePositie);
 
-                obstacleYpos = randomnummer.Next(1, screenheight);
-
-            }
-
+               return score;
+            } 
+            
             teljePositie.Insert(0, hoofd.xPos);
-
             teljePositie.Insert(1, hoofd.yPos);
 
             teljePositie.RemoveAt(teljePositie.Count - 1);
+            teljePositie.RemoveAt(teljePositie.Count - 2);
 
-            teljePositie.RemoveAt(teljePositie.Count - 1);
+            DrawSnake.DrawTail(teljePositie);
+
+            return score;
         }
     }
 }
